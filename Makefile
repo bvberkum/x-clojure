@@ -1,3 +1,5 @@
+.PHONY: default doc all
+
 default: all
 	
 include templates.mk
