@@ -22,10 +22,9 @@ $$(cat ReadMe.txt)
 <img src="asset/ReadME-fig1.svg" alt="Fig 1. illustration of main project flow. " width="60%" >
 
 #### Test:
-```
+\`\`\`
 $$package_scripts_test__0
-```
-
+\`\`\`
 endef
 
 #define ReadMe_rst

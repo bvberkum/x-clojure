@@ -1,3 +1,5 @@
+default: all
+	
 include templates.mk
 
 
@@ -13,7 +15,6 @@ $/%.md: $/%.txt
 #	@{ echo 'cat <<EOM' ; echo "$$ReadMe_rst" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i - > $@ ;
 
 $/ReadMe-fig1.gv: templates.mk
-	@htd package update
 	@{ echo 'cat <<EOM' ; echo "$$FIG1_DIGRAPH" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i - > $@ ;
 	
 	
@@ -26,12 +27,14 @@ $/asset/%.svg: $/%.gv
 	dot -Tsvg -o$@ $<
 
 
-default: all
+$/.package.sh: $/package.yml
+	@htd package update
+
 
 DOCS = ReadMe.md ReadMe.html 
 ASSETS = asset/ReadMe-fig1.svg
 
-$(DOCS) $(ASSETS): Makefile templates.mk
+$(DOCS) $(ASSETS): Makefile templates.mk .package.sh
 
 doc: $(DOCS) $(ASSETS)
 all: $(DOCS) $(ASSETS)

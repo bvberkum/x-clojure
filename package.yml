@@ -2,6 +2,7 @@
   main: x-clojure
   id: x-clojure
   license: GPL-3.0
+  version: 0.0.0-dev
   description: Clojure testbed
   urls:
     base:
