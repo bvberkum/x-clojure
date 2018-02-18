@@ -1,0 +1,23 @@
+- type: application/vnd.org.wtwta.project
+  main: x-clojure
+  id: x-clojure
+  license: GPL-3.0
+  description: Clojure testbed
+  urls:
+    base:
+      - http://github.com/bvberkum/x-clojure
+    license:
+      - https://www.gnu.org/licenses/gpl-3.0.txt
+      - https://choosealicense.com/licenses/gpl-3.0/
+      - https://opensource.org/licenses/gpl-license
+    source-code:
+      - http://github.com/bvberkum/x-clojure.git
+    images:
+      - https://hub.docker.com/r/bvberkum/x-clojure
+  repositories:
+    github: git@github.com:bvberkum/x-clojure.git
+  scripts:
+    docs:
+      - make doc
+    test:
+      - docker run --rm bvberkum/x-golang:dev
