@@ -2,6 +2,8 @@ default: all
 	
 include templates.mk
 
+sh-template = { echo 'cat <<EOM' ; echo "$$$(1)" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i -
+
 
 / := ./
 
@@ -9,18 +11,17 @@ $/%.html: $/%.md
 	pandoc $< -t html > $@
 
 $/%.md: $/%.txt
-	@{ echo 'cat <<EOM' ; echo "$$ReadMe_md" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i - > $@ ;
+	@$(call sh-template,ReadMe_md) > $@
 
 #$/%.rst: $/%.txt
-#	@{ echo 'cat <<EOM' ; echo "$$ReadMe_rst" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i - > $@ ;
+#	@$(call sh-template,ReadMe_rst) > $@
 
-$/ReadMe-fig1.gv: templates.mk
-	@{ echo 'cat <<EOM' ; echo "$$FIG1_DIGRAPH" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i - > $@ ;
+$/ReadMe-fig1.gv:
+	@$(call sh-template,FIG1_DIGRAPH) > $@
 
 
-$/.git/hooks/pre-commit: templates.mk
-	@echo "$$pre_commit" > $@ ;
-	@chmod +x $@ ;
+$/.git/hooks/pre-commit:
+	@$(call sh-template,pre_commit) > $@
 	
 	
 $/asset/%.png: $/%.gv
@@ -39,9 +40,10 @@ $/.package.sh: $/package.yml
 DOCS = ReadMe.md ReadMe.html 
 ASSETS = asset/ReadMe-fig1.svg
 
-TRGT = .git/hooks/pre-commit
-
-$(DOCS) $(ASSETS): Makefile templates.mk .package.sh
-
 doc: $(DOCS) $(ASSETS)
-all: $(TRGT) $(DOCS) $(ASSETS)
+
+TRGT = .git/hooks/pre-commit $(ASSETS) $(DOCS)
+
+$(TRGT): Makefile templates.mk .package.sh
+
+all: $(TRGT)

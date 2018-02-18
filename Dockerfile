@@ -1,5 +1,5 @@
 FROM clojure
-RUN mkdir -p /usr/src
+RUN mkdir -p /usr/src && rm -rf /src/src/app || true
 RUN lein new hello-world && mv hello-world /usr/src/app
 WORKDIR /usr/src/app
 RUN find .

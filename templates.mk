@@ -1,6 +1,6 @@
 
 define pre_commit
-make
+$$package_scripts_pre_commit__0
 endef
 
 export pre_commit

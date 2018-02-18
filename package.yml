@@ -18,6 +18,10 @@
   repositories:
     github: git@github.com:bvberkum/x-clojure.git
   scripts:
+    init:
+      - make .git/hooks/pre-commit
+    pre-commit:
+      - make
     docs:
       - make doc
     test:
