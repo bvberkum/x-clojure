@@ -9,5 +9,6 @@ Testbed for Clojure project
 
 #### Test:
 ```
+docker pull bvberkum/x-clojure:latest
 docker run --rm bvberkum/x-clojure:latest
 ```

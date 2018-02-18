@@ -35,6 +35,7 @@ $$(cat ReadMe.txt)
 #### Test:
 \`\`\`
 $$package_scripts_test__0
+$$package_scripts_test__1
 \`\`\`
 endef
 

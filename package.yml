@@ -25,4 +25,7 @@
     docs:
       - make doc
     test:
+      - docker pull bvberkum/x-clojure:latest
       - docker run --rm bvberkum/x-clojure:latest
+    deinit:
+      - docker rmi -f bvberkum/x-clojure:latest
