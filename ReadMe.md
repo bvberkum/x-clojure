@@ -9,5 +9,5 @@ Testbed for Clojure project
 
 #### Test:
 ```
-docker run --rm bvberkum/x-golang:dev
+docker run --rm bvberkum/x-clojure:latest
 ```

@@ -21,4 +21,4 @@
     docs:
       - make doc
     test:
-      - docker run --rm bvberkum/x-golang:dev
+      - docker run --rm bvberkum/x-clojure:latest

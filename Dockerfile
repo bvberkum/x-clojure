@@ -1,7 +1,7 @@
 FROM clojure
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/src
+RUN lein new hello-world && mv hello-world /usr/src/app
 WORKDIR /usr/src/app
-RUN lein new hello-world
 RUN find .
 COPY project.clj /usr/src/app/
 COPY core.clj /usr/src/app/src/hello_world/
