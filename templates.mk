@@ -30,7 +30,7 @@ $$(cat ReadMe.txt)
 
 ##### Version: $$package_version
 
-<img src="asset/ReadMe-fig1.svg" alt="Fig 1. illustration of main project flow. " width="30%" >
+<img src="asset/ReadMe-fig1.svg" alt="Fig 1. illustration of main project flow. " width="20%" >
 
 #### Test:
 \`\`\`

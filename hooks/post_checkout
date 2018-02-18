@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo '---------- post_checkout '$(pwd)
+
+
+# highland builder does not obey skip tag
+case "$(echo "$COMMIT_MSG" | tr 'A-Z' 'a-z') " in
+  *"[skip ci]"* | *"[ci skip]"* )
+    echo "Skipping build by ci-skip commit message"
+    exit 1 ;;
+esac
+
