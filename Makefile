@@ -24,6 +24,7 @@ $/ReadMe-fig1.gv:
 
 $/.git/hooks/pre-commit:
 	@$(call sh-template,pre_commit) > $@
+	chmod +x $@
 	
 	
 $/asset/%.png: $/%.gv
