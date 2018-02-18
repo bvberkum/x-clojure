@@ -16,6 +16,11 @@ $/%.md: $/%.txt
 
 $/ReadMe-fig1.gv: templates.mk
 	@{ echo 'cat <<EOM' ; echo "$$FIG1_DIGRAPH" ; echo 'EOM' ; } |  ENV=./.package.sh sh -i - > $@ ;
+
+
+$/.git/hooks/pre-commit: templates.mk
+	@echo "$$pre_commit" > $@ ;
+	@chmod +x $@ ;
 	
 	
 $/asset/%.png: $/%.gv
@@ -34,7 +39,9 @@ $/.package.sh: $/package.yml
 DOCS = ReadMe.md ReadMe.html 
 ASSETS = asset/ReadMe-fig1.svg
 
+TRGT = .git/hooks/pre-commit
+
 $(DOCS) $(ASSETS): Makefile templates.mk .package.sh
 
 doc: $(DOCS) $(ASSETS)
-all: $(DOCS) $(ASSETS)
+all: $(TRGT) $(DOCS) $(ASSETS)
