@@ -5,7 +5,7 @@ Testbed for Clojure project
 
 ##### Version: 0.0.0-dev
 
-<img src="asset/ReadME-fig1.svg" alt="Fig 1. illustration of main project flow. " width="60%" >
+<img src="asset/ReadMe-fig1.svg" alt="Fig 1. illustration of main project flow. " width="60%" >
 
 #### Test:
 ```
